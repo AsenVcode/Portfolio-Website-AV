@@ -1,0 +1,152 @@
+═══════════════════════════════════════════════════════════════════
+   SETUP INSTRUCTIONS - Asen Vapordzhiev Portfolio
+═══════════════════════════════════════════════════════════════════
+
+✅ STEP 1: Create .env File
+───────────────────────────────────────────────────────────────────
+
+1. In the root folder (Portfolio-Website-AV), create a new file named:
+   .env
+
+2. Copy and paste your API keys into the .env file:
+
+VITE_OPENAI_API_KEY=your_openai_api_key_here
+VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key_here
+STRIPE_SECRET_KEY=your_stripe_secret_key_here
+VITE_APP_URL=http://localhost:5173
+
+NOTE: Use your actual API keys from:
+- OpenAI: https://platform.openai.com/api-keys
+- Stripe: https://dashboard.stripe.com/test/apikeys
+
+3. Save the file
+
+
+✅ STEP 2: Install Dependencies (if not done)
+───────────────────────────────────────────────────────────────────
+
+Open PowerShell or Command Prompt in the project folder and run:
+
+npm install
+
+
+✅ STEP 3: Run the Development Server
+───────────────────────────────────────────────────────────────────
+
+In PowerShell or Command Prompt, run:
+
+npm run dev
+
+You should see output like:
+  VITE v5.0.8  ready in 500 ms
+  ➜  Local:   http://localhost:5173/
+
+
+✅ STEP 4: Open in Browser
+───────────────────────────────────────────────────────────────────
+
+Open your web browser and go to:
+
+http://localhost:5173
+
+
+✅ STEP 5: Test Everything
+───────────────────────────────────────────────────────────────────
+
+1. NAVIGATION
+   - Click the menu items (Home, About, Projects, Demo, Contact)
+   - Should scroll smoothly to each section
+
+2. PROJECTS SECTION
+   - See your Habit Flow app
+   - See your IPTV Player app
+   - Click the GitHub links - they should open
+
+3. AI DEMO (Most Important!)
+   - Scroll to "Live AI Demo" section
+   - Type a prompt like: "Write a motivational quote about success"
+   - Click "Generate with AI"
+   - Wait a few seconds
+   - You should see an AI-generated response!
+
+4. STRIPE CHECKOUT
+   - In the AI Demo section, click "Upgrade to Pro"
+   - A Stripe checkout page should open
+   - Test card: 4242 4242 4242 4242
+   - Any future expiry date (like 12/25)
+   - Any 3-digit CVC (like 123)
+   - Complete the test checkout
+
+5. CONTACT SECTION
+   - Click your email link - should open your email app
+   - Click GitHub link - should open your GitHub
+
+
+═══════════════════════════════════════════════════════════════════
+   TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════
+
+❌ "npm: command not found"
+   → You need to install Node.js from https://nodejs.org
+
+❌ "Missing script: dev"
+   → Make sure package.json exists and has the correct content
+   → Try: npm install
+
+❌ AI Demo shows error "AI service not configured"
+   → Make sure .env file is created in the ROOT folder
+   → Check that API keys have no extra spaces
+   → Restart the dev server (Ctrl+C, then npm run dev)
+
+❌ Stripe checkout doesn't open
+   → Check .env file has all Stripe keys
+   → Make sure keys start with pk_test_ and sk_test_
+   → Restart the dev server
+
+❌ Port 5173 already in use
+   → Run: npm run dev -- --port 3000
+   → Then use: http://localhost:3000
+
+
+═══════════════════════════════════════════════════════════════════
+   WHAT'S BEEN UPDATED WITH YOUR INFO
+═══════════════════════════════════════════════════════════════════
+
+✅ Your name: Asen Vapordzhiev (in Hero section)
+✅ Your email: avapordzhiev@gmail.com (in Contact section)
+✅ Page title: "Asen Vapordzhiev - Portfolio"
+✅ Footer: "© 2026 Asen Vapordzhiev"
+✅ API Keys: All configured in .env file
+
+
+═══════════════════════════════════════════════════════════════════
+   READY TO DEPLOY TO VERCEL?
+═══════════════════════════════════════════════════════════════════
+
+Once testing looks good locally:
+
+1. Install Vercel CLI:
+   npm install -g vercel
+
+2. Deploy:
+   vercel
+
+3. Follow the prompts (press Enter for defaults)
+
+4. In Vercel dashboard, add the same environment variables:
+   - VITE_OPENAI_API_KEY
+   - VITE_STRIPE_PUBLISHABLE_KEY
+   - STRIPE_SECRET_KEY
+   - VITE_APP_URL (use your Vercel URL)
+
+5. Redeploy after adding variables
+
+
+═══════════════════════════════════════════════════════════════════
+
+Questions? Check these files:
+- README.md - Complete documentation
+- DEPLOYMENT.md - Deployment guide
+- JOB_APPLICATION_CHECKLIST.md - Job application prep
+
+Good luck! 🚀
