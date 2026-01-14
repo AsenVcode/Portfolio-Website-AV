@@ -8,8 +8,21 @@ const AIDemo = () => {
   const [isPro, setIsPro] = useState(false)
   const [showPaywall, setShowPaywall] = useState(false)
   const [usageCount, setUsageCount] = useState(0)
+  const [showSuccess, setShowSuccess] = useState(false)
 
   const FREE_LIMIT = 3
+
+  // Check for Stripe success on component mount
+  useState(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    if (urlParams.get('success') === 'true') {
+      setShowSuccess(true)
+      // Clean URL
+      window.history.replaceState({}, '', window.location.pathname)
+      // Hide success message after 5 seconds
+      setTimeout(() => setShowSuccess(false), 5000)
+    }
+  }, [])
 
   const handleGenerate = async () => {
     if (!prompt.trim()) {
@@ -112,6 +125,24 @@ const AIDemo = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="card-gradient rounded-xl p-8 border border-gray-700"
         >
+          {/* Success Message */}
+          {showSuccess && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="mb-6 p-4 bg-green-900/50 border border-green-500 rounded-lg flex items-center gap-3"
+            >
+              <span className="text-2xl">🎉</span>
+              <div>
+                <h4 className="text-white font-semibold">Payment Successful!</h4>
+                <p className="text-green-300 text-sm">
+                  Thanks for testing the Stripe integration. In production, you'd now have Pro access!
+                </p>
+              </div>
+            </motion.div>
+          )}
+
           {/* Pro Status Banner */}
           <div className="mb-6 flex items-center justify-between">
             <div className="flex items-center gap-2">
